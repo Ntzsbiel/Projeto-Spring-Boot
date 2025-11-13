@@ -90,10 +90,6 @@ spring.jpa.show-sql=true
 
 ---
 
-(continua abaixo — a partir da **Etapa 4 até 7**, totalmente dentro do README)
-
----
-markdown
 ### 🧩 Etapa 4 — Implementação do Backend (até 17/11)
 🎯 **Objetivo:** desenvolver as funcionalidades CRUD completas.
 
