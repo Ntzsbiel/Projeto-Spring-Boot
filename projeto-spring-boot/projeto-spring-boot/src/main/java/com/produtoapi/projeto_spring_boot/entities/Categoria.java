@@ -1,4 +1,4 @@
-package com.produtoapi.entities;
+package com.produtoapi.projeto_spring_boot.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
