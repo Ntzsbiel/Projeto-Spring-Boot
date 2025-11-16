@@ -1,5 +1,6 @@
 package com.produtoapi.projeto_spring_boot.entities;
 
+<<<<<<< HEAD
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
@@ -67,5 +68,3 @@ public class Carrinho {
 	{
 		
 	}
-
-}
