@@ -16,9 +16,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data                       // Gera getters, setters, toString, equals e hashCode
-@NoArgsConstructor          // Construtor vazio
-@AllArgsConstructor         // Construtor com todos os atributos
+@Data                       
+@NoArgsConstructor          
+@AllArgsConstructor         
 public class Produto {
 	
 	@Id
@@ -38,8 +38,32 @@ public class Produto {
 	
 	@ManyToOne
 	@NotNull(message = "A categoria do produto é obrigatória")
-    @JoinColumn(name = "categoria_id") // nome da coluna no banco
-    private Categoria categoria;
+    @JoinColumn(name = "categoria_id") 
+    private Categoria categoria; 
+	
+	
+    // ------------------ MÉTODOS DE REGRA DE NEGÓCIO ------------
+	
+	public Integer verEstoque() {
+	    return this.quantidade;
+	}
+
+    public void diminuirEstoque(int qnt) {
+        if (qnt <= 0) {
+            throw new IllegalArgumentException("Quantidade deve ser maior que zero.");
+        }
+        if (qnt > this.quantidade) {
+            throw new IllegalStateException("Estoque insuficiente.");
+        }
+        this.quantidade -= qnt;
+    }
+
+    public void aumentarEstoque(int qnt) {
+        if (qnt <= 0) {
+            throw new IllegalArgumentException("Quantidade deve ser maior que zero.");
+        }
+        this.quantidade += qnt;
+    }
 	
 	
 }
