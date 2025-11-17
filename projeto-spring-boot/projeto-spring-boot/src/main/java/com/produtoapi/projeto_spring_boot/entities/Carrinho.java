@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,8 @@ public class Carrinho {
 	private LocalDate data;
 
 	private String status;
-
+	
+	@OneToMany(mappedBy = "carrinho")
 	private List<CarrinhoItens> itens = new ArrayList<>();
 
 	//
@@ -43,12 +45,9 @@ public class Carrinho {
 	}
 
 	public void removerItem(Integer idItem) {
-		for (CarrinhoItens item : itens)
-			if (item.getId().equals(idItem)) {
-				itens.remove(idItem);
-				break;
-			}
+	    itens.removeIf(item -> item.getId().equals(idItem));
 	}
+
 
 	public void atualizarQuantidade(int idItem, int qnt) {
 		for (CarrinhoItens item : itens) {
