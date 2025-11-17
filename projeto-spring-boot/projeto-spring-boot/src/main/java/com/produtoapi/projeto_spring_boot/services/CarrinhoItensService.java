@@ -15,6 +15,9 @@ import com.produtoapi.projeto_spring_boot.repositories.ProdutoRepository;
 @Service
 public class CarrinhoItensService {
 
+	
+// Entidades que serão utilizadas para manipular CarrinhoItens
+	
 	@Autowired
 	private CarrinhoItensRepository carrinhoItensRepo;
 
@@ -47,21 +50,26 @@ public class CarrinhoItensService {
 	// Adiciona um novo item ao carrinho
 	public CarrinhoItens adicionar(Integer idCarrinho, Integer idProduto, Integer quantidade) {
 
-		// 1. Busca carrinho
-		Carrinho carrinho = carrinhoRepo.findById(idCarrinho)
+		// 1° Busca carrinho
+		Carrinho carrinho = carrinhoRepo
+				.findById(idCarrinho)
 				.orElseThrow(() -> new RuntimeException("Carrinho não encontrado!"));
 
-		// 2. Busca produto
-		Produto produto = produtoRepo.findById(idProduto)
+		
+		// 2° Busca produto
+		Produto produto = produtoRepo
+				.findById(idProduto)
 				.orElseThrow(() -> new RuntimeException("Produto não encontrado!"));
 
-		// 3. Cria o item do carrinho
+		
+		// 3° Cria o item do carrinho
 		CarrinhoItens item = new CarrinhoItens();
 		item.setCarrinho(carrinho);
 		item.setProduto(produto);
 		item.setQuantidade(quantidade);
 
-		// 4. Salva no banco
+		
+		// 4° Salva no banco
 		return carrinhoItensRepo.save(item);
 	}
 
