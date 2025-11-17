@@ -22,7 +22,7 @@ public class Carrinho {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id_carrinho;
 	
 	private LocalDate data;
 	
@@ -45,11 +45,11 @@ public class Carrinho {
     {
 		
 	}
-	public void atualizarQuantidade(id_item, qnt)
+	public void atualizarQuantidade(int id_item, int qnt)
 	{
 		
 	}
-	public void listarItens()
+	public List<CarrinhoItem>void listarItens()
 	{
 		
 	}
@@ -61,10 +61,12 @@ public class Carrinho {
 	
 	public void finalizar()
 	{
-		
+		this.status = " Finalizado ";
 	}
 	
 	public void cancelar()
 	{
-		
+		this.status = " Cancelado ";
 	}
+
+}
