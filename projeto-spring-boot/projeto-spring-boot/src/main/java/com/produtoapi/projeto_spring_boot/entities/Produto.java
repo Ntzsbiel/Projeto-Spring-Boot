@@ -65,10 +65,4 @@ public class Produto {
         this.quantidade += qnt;
     }
 
-	public BigDecimal getPreco() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-
 }
