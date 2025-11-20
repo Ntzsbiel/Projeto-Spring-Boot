@@ -36,8 +36,9 @@ public class CarrinhoItensService {
 
 	// Lista todos os itens de um carrinho específico
 	public List<CarrinhoItens> listarPorCarrinho(Integer idCarrinho) {
-		return carrinhoItensRepo.findByCarrinhoId(idCarrinho);
+	    return carrinhoItensRepo.findByCarrinhoIdCarrinho(idCarrinho);
 	}
+
 
 	// Busca item pelo id
 	public CarrinhoItens buscarPorId(Integer idItem) {
