@@ -1,5 +1,7 @@
 package com.produtoapi.projeto_spring_boot.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +30,9 @@ public class CarrinhoItens {
 
     @ManyToOne
     @JoinColumn(name = "carrinho_id")
+    @JsonIgnore
     private Carrinho carrinho;
+;
 
     
     // GETTERS e SETTERS
